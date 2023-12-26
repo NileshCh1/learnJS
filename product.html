@@ -94,6 +94,7 @@
     import CartUtility from './cartUtility.js';
 
     document.addEventListener("DOMContentLoaded", function() {
+      console.log('DOMContentLoaded event fired'); // Check if this is logged
       const productUtility = new ProductUtility();
       const cartUtility = new CartUtility();
 
@@ -136,7 +137,9 @@
 
       // Function to add a product to the cart
       function addToCart(product) {
-        cartUtility.addItem(product);
+        //const cartUtility = new CartUtility();
+
+        CartUtility.addItemToCart(product);
         alert(`${product.name} added to the cart!`);
       }
     });

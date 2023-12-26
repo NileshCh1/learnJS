@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Store</title>
+
+  <!-- Include your JavaScript files -->
+  <script type="module" src="./models.js"></script>
+  <script type="module" src="./productUtility.js"></script>
+  <script type="module" src="./cartUtility.js"></script>
+  <script type="module" src="./script.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px;
+      width: 100%;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin: 10px;
+      padding: 15px;
+      width: 200px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .cart-link {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Online Store</h1>
+    <a href="./cart.html" class="cart-link">🛒 Cart</a>
+  </header>
+
+  <div class="product-container" id="productContainer">
+    <!-- Product cards will be dynamically added here -->
+  </div>
+
+  <script type="module">
+    import { Product, Payment } from './models.js';
+    import ProductUtility from './productUtility.js';
+    import CartUtility from './cartUtility.js';
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const productUtility = new ProductUtility();
+      const cartUtility = new CartUtility();
+
+      // Get existing products
+      const existingProducts = productUtility.getProducts();
+
+      // Display products on the page
+      const productContainer = document.getElementById('productContainer');
+      existingProducts.forEach(product => {
+        const productCard = createProductCard(product);
+        productContainer.appendChild(productCard);
+      });
+
+      // Function to create a product card
+      function createProductCard(product) {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+
+        const image = document.createElement('img');
+        image.src = product.image;
+        image.alt = product.name;
+
+        const name = document.createElement('p');
+        name.textContent = product.name;
+
+        const price = document.createElement('p');
+        price.textContent = `$${product.price.toFixed(2)}`;
+
+        const addButton = document.createElement('button');
+        addButton.textContent = 'Add to Cart';
+        addButton.addEventListener('click', () => addToCart(product));
+
+        card.appendChild(image);
+        card.appendChild(name);
+        card.appendChild(price);
+        card.appendChild(addButton);
+
+        return card;
+      }
+
+      // Function to add a product to the cart
+      function addToCart(product) {
+        cartUtility.addItem(product);
+        alert(`${product.name} added to the cart!`);
+      }
+    });
+  </script>
+
+</body>
+</html>

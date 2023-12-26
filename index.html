@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Signup Page</title>
+
+  <script type="module" src="userModel.js"></script>
+  <script type="module" src="userUtility.js"></script>
+  <!-- Import script.js using type="module" -->
+  <script type="module" src="./script.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+  
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+  
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+  
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    button:hover {
+      background-color: #45a049;
+    }
+  
+    .switch-form {
+      margin-top: 10px;
+      text-align: center;
+    }
+  
+    .switch-form a {
+      color: #4caf50;
+      text-decoration: none;
+    }
+  
+    .switch-form a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <div id="loginForm" class="form-container">
+    <h2>Login</h2>
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" name="loginUsername" required>
+
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" name="loginPassword" required>
+
+    <!-- Use id="loginButton" for the button -->
+    <button type="button" id="loginButton">Login</button>
+
+    <div class="switch-form">
+      <p>New user? <a href="#" id="signupLink">Signup here</a></p>
+    </div>
+  </div>
+
+  <div id="signupForm" class="form-container" style="display: none;">
+    <h2>Signup</h2>
+    <label for="signupUsername">Username:</label>
+    <input type="text" id="signupUsername" name="signupUsername" required>
+
+    <label for="signupEmail">Email:</label>
+    <input type="email" id="signupEmail" name="signupEmail" required>
+
+    <label for="signupPassword">Password:</label>
+    <input type="password" id="signupPassword" name="signupPassword" required>
+
+    <!-- Use id="signupButton" for the button -->
+    <button type="button" id="signupButton">Signup</button>
+
+    <div class="switch-form">
+      <p>Already have an account? <a href="#" id="loginLink">Login here</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,6 +1,5 @@
 // productUtility.js
-import { Product, Payment } from './models.js';
-
+import { Product } from './models.js';
 
 class ProductUtility {
   constructor() {
@@ -32,6 +31,12 @@ class ProductUtility {
   }
 
   updateSession() {
+    //print each product from products 
+    
+    this.products.forEach(product => {
+        console.log(product);
+        });
+
     window.sessionStorage.setItem('products', JSON.stringify(this.products));
   }
 

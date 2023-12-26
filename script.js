@@ -16,6 +16,8 @@ function login() {
 
   if (user && userUtility.validatePassword(user, password)) {
     //alert("Login successful");
+    userUtility.setCurrentUser(user);
+    addProducts();
     window.location.href = "product.html";
   } else {
     alert("Invalid username or password");
@@ -56,39 +58,38 @@ function showLoginForm() {
 function addProducts() {
   // Create an instance of ProductUtility
   const productUtility = new ProductUtility();
-
-  // Dummy products
-  const laptop = new Product(
+// Dummy products
+const laptop = new Product(
     1,
     "Laptop",
     999.99,
-    "https://via.placeholder.com/150?text=Laptop"
+    "https://via.placeholder.com/150/3498db/ffffff?text=Laptop"
   );
   const smartphone = new Product(
     2,
     "Smartphone",
     499.99,
-    "https://via.placeholder.com/150?text=Smartphone"
+    "https://via.placeholder.com/150/2ecc71/ffffff?text=Smartphone"
   );
   const headphones = new Product(
     3,
     "Headphones",
     79.99,
-    "https://via.placeholder.com/150?text=Headphones"
+    "https://via.placeholder.com/150/e74c3c/ffffff?text=Headphones"
   );
   const tablet = new Product(
     4,
     "Tablet",
     299.99,
-    "https://via.placeholder.com/150?text=Tablet"
+    "https://via.placeholder.com/150/f39c12/ffffff?text=Tablet"
   );
   const camera = new Product(
     5,
     "Camera",
     599.99,
-    "https://via.placeholder.com/150?text=Camera"
+    "https://via.placeholder.com/150/9b59b6/ffffff?text=Camera"
   );
-
+  
   // Add dummy products to the list
   productUtility.addProduct(laptop);
   productUtility.addProduct(smartphone);

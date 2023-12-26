@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function checkout() {
     const paymentMethod = new Payment(); // You can replace this with the actual payment method implementation
     cart.checkout(paymentMethod);
-    updateCartItems();
+    //updateCartItems();
     alert('Checkout successful!');
   }
 

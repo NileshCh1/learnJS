@@ -56,50 +56,33 @@ function showLoginForm() {
 }
 
 function addProducts() {
-  // Create an instance of ProductUtility
-  const productUtility = new ProductUtility();
-// Dummy products
-const laptop = new Product(
-    1,
-    "Laptop",
-    999.99,
-    "https://via.placeholder.com/150/3498db/ffffff?text=Laptop"
-  );
-  const smartphone = new Product(
-    2,
-    "Smartphone",
-    499.99,
-    "https://via.placeholder.com/150/2ecc71/ffffff?text=Smartphone"
-  );
-  const headphones = new Product(
-    3,
-    "Headphones",
-    79.99,
-    "https://via.placeholder.com/150/e74c3c/ffffff?text=Headphones"
-  );
-  const tablet = new Product(
-    4,
-    "Tablet",
-    299.99,
-    "https://via.placeholder.com/150/f39c12/ffffff?text=Tablet"
-  );
-  const camera = new Product(
-    5,
-    "Camera",
-    599.99,
-    "https://via.placeholder.com/150/9b59b6/ffffff?text=Camera"
-  );
+    // Create an instance of ProductUtility
+    const productUtility = new ProductUtility();
   
-  // Add dummy products to the list
-  productUtility.addProduct(laptop);
-  productUtility.addProduct(smartphone);
-  productUtility.addProduct(headphones);
-  productUtility.addProduct(tablet);
-  productUtility.addProduct(camera);
-
-  // Display the current list of products
-  console.log("Current List of Products:", productUtility.getProducts());
-}
+    // Dummy products
+    const products = [
+      new Product(1, "Laptop", 999.99, "https://via.placeholder.com/150/3498db/ffffff?text=Laptop"),
+      new Product(2, "Smartphone", 499.99, "https://via.placeholder.com/150/2ecc71/ffffff?text=Smartphone"),
+      new Product(3, "Headphones", 79.99, "https://via.placeholder.com/150/e74c3c/ffffff?text=Headphones"),
+      new Product(4, "Tablet", 299.99, "https://via.placeholder.com/150/f39c12/ffffff?text=Tablet"),
+      new Product(5, "Camera", 599.99, "https://via.placeholder.com/150/9b59b6/ffffff?text=Camera"),
+      new Product(6, "Gaming Console", 399.99, "https://via.placeholder.com/150/3498db/ffffff?text=Gaming+Console"),
+      new Product(7, "Fitness Tracker", 89.99, "https://via.placeholder.com/150/2ecc71/ffffff?text=Fitness+Tracker"),
+      new Product(8, "Bluetooth Speaker", 129.99, "https://via.placeholder.com/150/e74c3c/ffffff?text=Bluetooth+Speaker"),
+      new Product(9, "Coffee Maker", 49.99, "https://via.placeholder.com/150/f39c12/ffffff?text=Coffee+Maker"),
+      new Product(10, "Wireless Earbuds", 149.99, "https://via.placeholder.com/150/9b59b6/ffffff?text=Wireless+Earbuds"),
+      // Add more products as needed
+      // ...
+    ];
+  
+    // Add products to the list
+    products.forEach(product => {
+      productUtility.addProduct(product);
+    });
+  
+    // Display the current list of products
+    console.log("Current List of Products:", productUtility.getProducts());
+  }
 
 // Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
